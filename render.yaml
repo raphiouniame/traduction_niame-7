@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: traducteur-deepl
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    plan: free
+    envVars:
+      - key: DEEPL_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11"
